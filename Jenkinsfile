@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/Laura4lilavati/Demo-Serenity-Cucumber.git'
+        git 'https://github.com/cbbegermanandrerosasfi-ux/Demo-Serenity-Cucumber1.git'
       }
     }
     stage('Build & Test') {
