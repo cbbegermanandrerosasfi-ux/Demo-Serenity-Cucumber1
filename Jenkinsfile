@@ -13,7 +13,17 @@ pipeline {
     }
     stage('Report') {
       steps {
-        publishHTML([reportDir: 'target/site/serenity', reportFiles: 'index.html', reportName: 'Serenity Report'])
+        publishHTML(
+            // Usa un array para pasar la configuración del reporte
+            target: [
+                allowMissing: false,          // El reporte es obligatorio, si falta, falla el build
+                alwaysLinkToLastBuild: true,  // Enlaza siempre a la última compilación
+                keepAll: true,                // Conserva los reportes de todas las builds
+                reportDir: 'target/site/serenity',
+                reportFiles: 'index.html',
+                reportName: 'Serenity Report'
+            ]
+        )
       }
     }
   }
